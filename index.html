@@ -532,11 +532,14 @@
             <strong>📌 NOVITÀ LEGGE DI BILANCIO 2025:</strong><br>
             • <strong>💰 Nuovo massimale deducibile: €5.300 annui</strong> <br>
             • <strong>TFR annuo (7,41% RAL)</strong> - Calcolo del Trattamento di Fine Rapporto secondo la normativa<br>
-            • <strong>Contributo datoriale</strong> - Percentuale aggiuntiva versata dal datore di lavoro obbligatoria per ottenere contributo datoriale<br>
-            • <strong>Contributo dipendente</strong> - Percentuale trattenuta dalla busta paga<br>
-            • <strong>Fondo Pensione attuale</strong> - Capitale già accumulato che verrà rivalutato<br>
-            • <strong>Strategia del secondo fondo pensione</strong> - Simulazione investimento della capienza deducibile con parametri personalizzabili
-        </div>
+            • <strong>Contributo datoriale</strong> - Percentuale della RAL versata dal datore nel fondo pensione . In termini pratici, rappresenta una vera e propria quota di “soldi gratis”,<br>
+            • <strong>Contributo dipendente</strong> - Per poter ricevere il contributo datoriale è necessario che il dipendente versi anche una piccola percentuale a tuo carico.<br>
+            • <strong>Fondo Pensione attuale</strong> - Capitale già accumulato ( TFR pregresso + gli eventauli contributi datoriali e del dipendente gia versati) che verrà rivalutato<br>
+            • <strong>Strategia del secondo fondo pensione</strong> - Simulazoine per calcolare  ulteriori spazi di deducibilita da investire in un secondo fondo pensione con rischio personalizzabile 
+            • <strong>Discaimer</strong> - Il presente strumento di calcolo e simulazione è realizzato esclusivamente a scopo informativo, didattico e illustrativo. I risultati generati non costituiscono in alcun modo:
+              Consulenza finanziaria personalizzata. Raccomandazione di investimento. Consulenza fiscale o previdenziale. Offerta o sollecitazione all'acquisto di prodotti finanziari
+
+      </div>
         
         <div class="grid">
             <!-- PANNELLO INPUT -->
@@ -798,7 +801,7 @@
                 const montanteReale = montante / Math.pow(1 + inflazione, anniContribuzione);
                 const renditaAnnua = montante * 0.04;
                 
-                // ========== TASSAZIONE AGEVOLATA ==========
+                // ========== TASSAZIONE AGEVOLATA FONDO PRINCIPALE ==========
                 const anniPermanenza = anniContribuzione;
                 let aliquotaTassazione;
                 if (anniPermanenza < 15) aliquotaTassazione = 15;
@@ -1041,4 +1044,5 @@
         window.onload = calcolaSimulazione;
     </script>
 </body>
+    
 </html>
