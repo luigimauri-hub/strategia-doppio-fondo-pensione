@@ -547,6 +547,151 @@
             border-top: 1px solid #ffc107;
             color: #856404;
         }
+        
+        /* NUOVO RIQUADRO IMPORTI SIMULATI */
+        .importi-simulati-box {
+            margin-top: 40px;
+            padding: 30px;
+            background: linear-gradient(145deg, #f8fafc, #e9ecef);
+            border-radius: 20px;
+            border: 2px solid #0b4f6c;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .importi-simulati-title {
+            color: #0b4f6c;
+            font-size: 1.8em;
+            font-weight: 800;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 3px solid #0b4f6c;
+            padding-bottom: 15px;
+        }
+        
+        .importi-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .importi-card {
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: 0 8px 0 #0b4f6c;
+            border: 2px solid #0b4f6c;
+            text-align: center;
+        }
+        
+        .importi-card-principale {
+            border-color: #0b4f6c;
+            box-shadow: 0 8px 0 #0b4f6c;
+        }
+        
+        .importi-card-secondo {
+            border-color: #4f46e5;
+            box-shadow: 0 8px 0 #3730a3;
+        }
+        
+        .importi-card-title {
+            font-size: 1.2em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid;
+        }
+        
+        .importi-card-principale .importi-card-title {
+            color: #0b4f6c;
+            border-bottom-color: #0b4f6c;
+        }
+        
+        .importi-card-secondo .importi-card-title {
+            color: #3730a3;
+            border-bottom-color: #4f46e5;
+        }
+        
+        .importi-valore {
+            font-size: 2.8em;
+            font-weight: 800;
+            margin: 20px 0;
+            line-height: 1.2;
+        }
+        
+        .importi-card-principale .importi-valore {
+            color: #0b4f6c;
+        }
+        
+        .importi-card-secondo .importi-valore {
+            color: #3730a3;
+        }
+        
+        .importi-label {
+            font-size: 0.95em;
+            color: #666;
+            margin-top: 10px;
+        }
+        
+        /* NOVITÀ 2026 */
+        .novita-2026-box {
+            margin-top: 30px;
+            padding: 25px;
+            background: linear-gradient(145deg, #e1f5fe, #b3e5fc);
+            border-radius: 18px;
+            border: 2px solid #0288d1;
+            color: #01579b;
+        }
+        
+        .novita-2026-title {
+            color: #01579b;
+            font-size: 1.4em;
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid #0288d1;
+            padding-bottom: 10px;
+        }
+        
+        .novita-2026-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .novita-item {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            border-left: 6px solid #0288d1;
+        }
+        
+        .novita-item strong {
+            color: #01579b;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .novita-item p {
+            margin: 0;
+            color: #333;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 768px) {
+            .importi-grid {
+                grid-template-columns: 1fr;
+            }
+            .novita-2026-list {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -717,7 +862,7 @@
             
             <!-- TESTO GRANDE COME FUNZIONA -->
             <div class="come-funziona-grande">
-                📢 Come funziona: Investi la capienza deducibile residua ogni anno in questo secondo fondo.
+                📢 Come funziona: Investi la capienza deducibile residua dopo il contributo datoriale e il contributo dipendente obbligatorio, ogni anno (o ogni mese)in un secondo Fondo Pensione con un differente profilo di rischio/rednimento.
             </div>
             
             <div id="secondoFondoContent">
@@ -725,7 +870,47 @@
             </div>
         </div>
         
-        <!-- ========== DISCLAIMER COMPLETO SOSTITUITO AL VECCHIO NOTE ========== -->
+        <!-- ========== NUOVO RIQUADRO IMPORTI SIMULATI ========== -->
+        <div class="importi-simulati-box" id="importiSimulatiBox">
+            <div class="importi-simulati-title">
+                <span>💰 IMPORTI SIMULATI DEI DUE FONDI PENSIONE</span>
+                <span class="badge" style="background: #0b4f6c;">alla data di pensionamento</span>
+            </div>
+            
+            <div id="importiSimulatiContent">
+                <!-- Contenuto generato dinamicamente -->
+            </div>
+            
+            <!-- NOVITÀ 2026 -->
+            <div class="novita-2026-box">
+                <div class="novita-2026-title">
+                    <span>📌 NOVITÀ 2026 - CONVERSIONE CAPITALE/RENDITA</span>
+                </div>
+                <div class="novita-2026-list">
+                    <div class="novita-item">
+                        <strong>📊 Aumento Capitale (Regola 60/40)</strong>
+                        <p>È possibile richiedere fino al <strong>60% del montante accumulato</strong> in un'unica soluzione, mentre il 40% deve essere convertito in rendita.</p>
+                    </div>
+                    <div class="novita-item">
+                        <strong>⏱️ Rendita a durata definita</strong>
+                        <p>Novità 2026 che permette di ricevere una rendita per un numero di anni pari alla <strong>vita attesa residua</strong> (basata su tavole ISTAT), invece di una rendita vitalizia classica.</p>
+                    </div>
+                    <div class="novita-item">
+                        <strong>💳 Prelievi liberi</strong>
+                        <p>Opzione che consente di <strong>prelevare somme dal fondo</strong> in modo flessibile, lasciando il capitale residuo investito, entro i limiti della rendita a durata definita.</p>
+                    </div>
+                    <div class="novita-item">
+                        <strong>📅 Erogazione frazionata</strong>
+                        <p>Possibilità di <strong>recuperare il capitale accumulato</strong> in un periodo non inferiore a 5 anni.</p>
+                    </div>
+                </div>
+                <p style="margin-top: 20px; font-size: 0.9em; font-style: italic; background: white; padding: 15px; border-radius: 10px;">
+                    ⚠️ Le opzioni sopra descritte sono alternative e vanno valutate con un consulente finanziario in base alle esigenze personali. La scelta della modalità di erogazione influenza la durata e l'importo delle prestazioni pensionistiche.
+                </p>
+            </div>
+        </div>
+        
+        <!-- ========== DISCLAIMER COMPLETO ========== -->
         <div class="disclaimer-completo">
             <div class="disclaimer-title">⚠️ DISCLAIMER LEGALE - INFORMAZIONI OBBLIGATORIE</div>
             
@@ -780,13 +965,16 @@
             <p><strong>8. VALORI DEFAULT E PARAMETRI ESEMPLIFICATIVI</strong><br>
             I valori predefiniti (età 50, RAL €60.000, fondo attuale €98.000, contributo datoriale 1,6%, contributo dipendente 1%) sono <strong>meramente esemplificativi</strong> e non costituiscono raccomandazione. Ogni utente deve inserire i propri dati personali effettivi.</p>
             
-            <p><strong>9. ACCETTAZIONE DELLE CONDIZIONI</strong><br>
+            <p><strong>9. NOVITÀ 2026</strong><br>
+            Le informazioni relative alle novità 2026 sulla conversione capitale/rendita (regola 60/40, rendita a durata definita, prelievi liberi, erogazione frazionata) sono <strong>anteprime di possibili evoluzioni normative</strong> e potrebbero subire modifiche prima dell'entrata in vigore. Verificare con fonti ufficiali.</p>
+            
+            <p><strong>10. ACCETTAZIONE DELLE CONDIZIONI</strong><br>
             <strong>L'UTILIZZO DEL SIMULATORE IMPLICA L'ACCETTAZIONE INTEGRALE E INCONDIZIONATA DEL PRESENTE DISCLAIMER.</strong> Qualora l'utente non accetti anche una sola delle clausole sopraesposte, è tenuto a non utilizzare lo strumento e ad abbandonare immediatamente la pagina.</p>
             
             <div class="disclaimer-footer">
-                <strong>© 2025 - Strategia del Doppio Fondo Pensione - Tutti i diritti riservati</strong><br>
+                <strong>© 2025-2026 - Strategia del Doppio Fondo Pensione - Tutti i diritti riservati</strong><br>
                 Strumento gratuito a scopo didattico - Vietata la riproduzione commerciale non autorizzata<br>
-                Aggiornato alla Legge di Bilancio 2025 - Versione 1.0
+                Aggiornato alla Legge di Bilancio 2025 - Anteprima novità 2026 - Versione 2.0
             </div>
         </div>
         
@@ -905,7 +1093,7 @@
                 
                 const roiTotale = ((montante / (totaleContributi + fondoAttuale)) - 1) * 100;
                 
-                // ========== GENERAZIONE HTML RISULTATI ==========
+                // ========== GENERAZIONE HTML RISULTATI FONDO PRINCIPALE ==========
                 document.getElementById('risultati-content').innerHTML = `
                     <div class="highlight">
                         <div style="font-size: 1.1em; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px;">MONTANTE FINALE TOTALE del FONDO PRINCIPALE</div>
@@ -1023,6 +1211,7 @@
                     </div>
                 `;
                 
+                // ========== GENERAZIONE HTML STRATEGIA SECONDO FONDO ==========
                 document.getElementById('secondoFondoContent').innerHTML = `
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
                         <div style="background: white; padding: 25px; border-radius: 18px; border: 2px solid #4f46e5; box-shadow: 0 8px 0 #3730a3;">
@@ -1090,6 +1279,40 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                `;
+                
+                // ========== GENERAZIONE HTML IMPORTI SIMULATI ==========
+                document.getElementById('importiSimulatiContent').innerHTML = `
+                    <div class="importi-grid">
+                        <div class="importi-card importi-card-principale">
+                            <div class="importi-card-title">
+                                🏦 FONDO PRINCIPALE
+                            </div>
+                            <div class="importi-valore">
+                                € ${formatNumber(montante)}
+                            </div>
+                            <div class="importi-label">
+                                MONTANTE FINALE TOTALE al pensionamento<br>
+                                <span style="font-size: 0.85em;">(dopo ${anniContribuzione} anni di contribuzione)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="importi-card importi-card-secondo">
+                            <div class="importi-card-title">
+                                🚀 SECONDO FONDO
+                            </div>
+                            <div class="importi-valore">
+                                € ${formatNumber(montanteMediano)}
+                            </div>
+                            <div class="importi-label">
+                                MONTANTE MEDIANO al pensionamento<br>
+                                <span style="font-size: 0.85em;">(rendimento ${(rendimentoSecondo*100).toFixed(1)}%, volatilità ${(volatilitaSecondo*100).toFixed(1)}%)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 12px; font-size: 0.95em;">
+                        <strong>💰 CAPITALE COMPLESSIVO ACCUMULATO:</strong> € ${formatNumber(montante + montanteMediano)}
                     </div>
                 `;
                 
