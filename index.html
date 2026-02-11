@@ -159,7 +159,7 @@
         @media (max-width: 480px) {
             input, select {
                 padding: 12px 14px;
-                font-size: 16px; /* Previene zoom automatico su iOS */
+                font-size: 16px;
             }
         }
         
@@ -411,98 +411,249 @@
             }
         }
         
+        /* ========== DEDUZIONE FISCALE - NUOVO DESIGN PROFESSIONALE ========== */
         .deduzione-box {
-            background: linear-gradient(145deg, #e8f4f8, #d1e7f0);
+            background: white;
             padding: 20px;
-            border-radius: 16px;
-            margin: 20px 0;
-            border: 2px solid #0b4f6c;
-            box-shadow: 0 6px 0 #0b4f6c;
-        }
-        
-        @media (max-width: 480px) {
-            .deduzione-box {
-                padding: 16px;
-                margin: 16px 0;
-            }
+            border-radius: 18px;
+            margin: 25px 0;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.02);
+            color: #1e293b;
         }
         
         .deduzione-title {
-            color: #0b4f6c;
+            color: #0f172a;
             font-size: 1.1em;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             gap: 10px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 12px;
+        }
+        
+        .deduzione-title span:first-child {
+            background: linear-gradient(145deg, #0b4f6c, #1d7a8c);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.85em;
+        }
+        
+        .deduzione-tabella {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 16px;
+            border: 1px solid #e2e8f0;
         }
         
         .deduzione-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(11,79,108,0.2);
+            padding: 12px 8px;
+            border-bottom: 1px solid #e2e8f0;
             font-size: 0.95em;
         }
         
-        @media (max-width: 480px) {
-            .deduzione-row {
-                font-size: 0.9em;
-                padding: 8px 0;
-            }
+        .deduzione-row:last-child {
+            border-bottom: none;
+        }
+        
+        .deduzione-label {
+            font-weight: 600;
+            color: #475569;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
         .deduzione-importo {
-            font-size: 1.1em;
+            font-size: 1.2em;
             font-weight: 700;
-            color: #0b4f6c;
+            color: #0f172a;
+            background: white;
+            padding: 4px 12px;
+            border-radius: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .deduzione-totale {
+            background: linear-gradient(145deg, #0b4f6c, #1d7a8c);
+            color: white;
+            padding: 16px;
+            border-radius: 14px;
+            margin-top: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            box-shadow: 0 6px 0 #0a3b4f;
+        }
+        
+        .deduzione-totale-label {
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .deduzione-totale-importo {
+            font-size: 1.4em;
+            font-weight: 800;
+            color: #ffd966;
+            background: rgba(255,255,255,0.1);
+            padding: 4px 16px;
+            border-radius: 40px;
         }
         
         .deduzione-massimale {
-            background: white;
-            padding: 12px;
-            border-radius: 10px;
-            margin-top: 12px;
-            border-left: 6px solid #ffc107;
-        }
-        
-        .deduzione-differenza {
-            background: #0b4f6c;
-            color: white;
-            padding: 14px;
-            border-radius: 10px;
-            margin-top: 16px;
-            font-size: 1em;
+            background: #f1f5f9;
+            padding: 16px;
+            border-radius: 14px;
+            margin: 16px 0;
+            border-left: 6px solid #f59e0b;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .deduzione-massimale span:first-child {
+            font-weight: 700;
+            color: #334155;
+            display: flex;
+            align-items: center;
             gap: 8px;
         }
         
-        @media (max-width: 480px) {
-            .deduzione-differenza {
-                flex-direction: column;
-                text-align: center;
-                padding: 12px;
-            }
+        .deduzione-massimale span:last-child {
+            font-size: 1.5em;
+            font-weight: 800;
+            color: #0b4f6c;
+            background: white;
+            padding: 4px 16px;
+            border-radius: 40px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .deduzione-differenza {
+            background: #f1f5f9;
+            padding: 16px;
+            border-radius: 14px;
+            margin-top: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            border: 1px solid #cbd5e1;
         }
         
         .differenza-positiva {
-            color: #ffd966;
-            font-size: 1.2em;
+            color: #0b4f6c;
+            font-size: 1.4em;
             font-weight: 800;
+            background: #e6f7e6;
+            padding: 4px 16px;
+            border-radius: 40px;
         }
         
         .differenza-negativa {
-            color: #ff8a8a;
-            font-size: 1.2em;
+            color: #b91c1c;
+            font-size: 1.4em;
             font-weight: 800;
+            background: #fee2e2;
+            padding: 4px 16px;
+            border-radius: 40px;
         }
+        
+        .risparmio-fiscale-card {
+            background: linear-gradient(145deg, #fef9e7, #fff3cd);
+            padding: 16px;
+            border-radius: 14px;
+            margin-top: 16px;
+            border: 1px solid #ffc107;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .risparmio-fiscale-label {
+            font-weight: 700;
+            color: #854d0e;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .risparmio-fiscale-importo {
+            font-size: 1.3em;
+            font-weight: 800;
+            color: #854d0e;
+        }
+        
+        .eccedenza-box {
+            background: #fffbeb;
+            color: #92400e;
+            padding: 14px;
+            border-radius: 12px;
+            margin-top: 16px;
+            text-align: center;
+            font-weight: 700;
+            border: 1px solid #f59e0b;
+            font-size: 0.95em;
+        }
+        
+        .capienza-box {
+            background: #e6f7e6;
+            color: #0b4f6c;
+            padding: 14px;
+            border-radius: 12px;
+            margin-top: 16px;
+            text-align: center;
+            font-weight: 700;
+            border: 1px solid #28a745;
+            font-size: 0.95em;
+        }
+        
+        @media (max-width: 480px) {
+            .deduzione-box {
+                padding: 16px;
+            }
+            
+            .deduzione-totale-importo {
+                font-size: 1.2em;
+            }
+            
+            .deduzione-massimale span:last-child {
+                font-size: 1.3em;
+            }
+            
+            .differenza-positiva, .differenza-negativa {
+                font-size: 1.2em;
+            }
+            
+            .deduzione-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+            }
+            
+            .deduzione-importo {
+                align-self: flex-end;
+            }
+        }
+        /* ============================================================ */
         
         .highlight {
             background: rgba(255,255,255,0.15);
@@ -662,10 +813,10 @@
         .importi-simulati-box {
             margin-top: 30px;
             padding: 25px;
-            background: linear-gradient(145deg, #f8fafc, #e9ecef);
-            border-radius: 18px;
-            border: 2px solid #0b4f6c;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            background: linear-gradient(145deg, #f8fafc, #f1f5f9);
+            border-radius: 20px;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
         }
         
         @media (max-width: 480px) {
@@ -676,7 +827,7 @@
         }
         
         .importi-simulati-title {
-            color: #0b4f6c;
+            color: #0f172a;
             font-size: 1.5em;
             font-weight: 800;
             margin-bottom: 20px;
@@ -684,7 +835,7 @@
             flex-wrap: wrap;
             align-items: center;
             gap: 12px;
-            border-bottom: 3px solid #0b4f6c;
+            border-bottom: 2px solid #cbd5e1;
             padding-bottom: 12px;
         }
         
@@ -712,21 +863,25 @@
         .importi-card {
             background: white;
             padding: 20px;
-            border-radius: 16px;
-            box-shadow: 0 6px 0 #0b4f6c;
-            border: 2px solid #0b4f6c;
+            border-radius: 18px;
+            box-shadow: 0 8px 0 #94a3b8;
+            border: 1px solid #cbd5e1;
             text-align: center;
+            transition: transform 0.2s;
         }
         
-        @media (max-width: 480px) {
-            .importi-card {
-                padding: 16px;
-            }
+        .importi-card:hover {
+            transform: translateY(-2px);
+        }
+        
+        .importi-card-principale {
+            border-top: 6px solid #0b4f6c;
+            box-shadow: 0 8px 0 #0b4f6c;
         }
         
         .importi-card-secondo {
-            border-color: #4f46e5;
-            box-shadow: 0 6px 0 #3730a3;
+            border-top: 6px solid #4f46e5;
+            box-shadow: 0 8px 0 #3730a3;
         }
         
         .importi-card-title {
@@ -734,11 +889,19 @@
             font-weight: 700;
             margin-bottom: 12px;
             padding-bottom: 8px;
-            border-bottom: 2px solid;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .importi-card-principale .importi-card-title {
+            color: #0b4f6c;
+        }
+        
+        .importi-card-secondo .importi-card-title {
+            color: #3730a3;
         }
         
         .importi-valore {
-            font-size: 2em;
+            font-size: 2.2em;
             font-weight: 800;
             margin: 15px 0;
             line-height: 1.2;
@@ -759,13 +922,19 @@
             color: #3730a3;
         }
         
+        .importi-label {
+            font-size: 0.85em;
+            color: #64748b;
+            margin-top: 8px;
+        }
+        
         .novita-2026-box {
             margin-top: 25px;
             padding: 20px;
-            background: linear-gradient(145deg, #e1f5fe, #b3e5fc);
-            border-radius: 16px;
-            border: 2px solid #0288d1;
-            color: #01579b;
+            background: linear-gradient(145deg, #f0f9ff, #e0f2fe);
+            border-radius: 18px;
+            border: 1px solid #7dd3fc;
+            color: #0369a1;
         }
         
         @media (max-width: 480px) {
@@ -776,7 +945,7 @@
         }
         
         .novita-2026-title {
-            color: #01579b;
+            color: #0369a1;
             font-size: 1.2em;
             font-weight: 800;
             margin-bottom: 16px;
@@ -784,7 +953,7 @@
             flex-wrap: wrap;
             align-items: center;
             gap: 8px;
-            border-bottom: 2px solid #0288d1;
+            border-bottom: 2px solid #7dd3fc;
             padding-bottom: 8px;
         }
         
@@ -804,12 +973,13 @@
         .novita-item {
             background: white;
             padding: 14px;
-            border-radius: 10px;
+            border-radius: 12px;
             border-left: 6px solid #0288d1;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
         }
         
         .novita-item strong {
-            color: #01579b;
+            color: #0369a1;
             display: block;
             margin-bottom: 6px;
             font-size: 1em;
@@ -817,15 +987,9 @@
         
         .novita-item p {
             margin: 0;
-            color: #333;
+            color: #334155;
             font-size: 0.9em;
             line-height: 1.5;
-        }
-        
-        @media (max-width: 480px) {
-            .novita-item p {
-                font-size: 0.85em;
-            }
         }
         
         .disclaimer-completo {
@@ -833,10 +997,10 @@
             line-height: 1.5;
             margin-top: 40px;
             padding: 20px;
-            background: #fff3cd;
+            background: #fff9e6;
             border-left: 6px solid #ffc107;
             border-radius: 14px;
-            color: #856404;
+            color: #854d0e;
             box-shadow: 0 5px 12px rgba(0,0,0,0.05);
         }
         
@@ -852,7 +1016,7 @@
         .disclaimer-title {
             font-size: 1.1em;
             font-weight: 800;
-            color: #533f03;
+            color: #854d0e;
             margin-bottom: 16px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -866,7 +1030,7 @@
             margin-top: 20px;
             padding-top: 16px;
             border-top: 1px solid #ffc107;
-            color: #856404;
+            color: #854d0e;
         }
         
         hr {
@@ -875,7 +1039,7 @@
             margin: 20px 0;
         }
         
-        /* Ottimizzazioni per touch */
+        /* Touch optimizations */
         button, 
         .button,
         input[type="number"],
@@ -883,43 +1047,6 @@
             -webkit-tap-highlight-color: transparent;
         }
         
-        /* Migliora leggibilità su schermi piccoli */
-        @media (max-width: 480px) {
-            .container {
-                max-width: 100%;
-            }
-            
-            .deduzione-massimale div {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 5px;
-            }
-            
-            .deduzione-massimale span {
-                font-size: 0.95em;
-            }
-            
-            .fondo-attuale-title,
-            .secondo-fondo-title,
-            .deduzione-title {
-                font-size: 1em;
-            }
-            
-            .parametro-input input {
-                font-size: 16px; /* Previene zoom iOS */
-            }
-            
-            .parametro-input span {
-                padding: 10px 10px;
-                font-size: 0.85em;
-            }
-            
-            .badge {
-                margin-left: 0;
-            }
-        }
-        
-        /* Per schermi molto piccoli */
         @media (max-width: 360px) {
             h1 {
                 font-size: 1.2em;
@@ -948,7 +1075,6 @@
             }
         }
         
-        /* Stampa */
         @media print {
             body {
                 background: white;
@@ -965,7 +1091,6 @@
             }
         }
         
-        /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
         }
@@ -983,7 +1108,7 @@
             • <strong>Contributo datoriale</strong> - Percentuale della RAL versata dal datore. In termini pratici, rappresenta “soldi gratis”.<br>
             • <strong>Contributo dipendente</strong> - Per ricevere il contributo datoriale è necessario versare una piccola percentuale a proprio carico.<br>
             • <strong>Fondo Pensione attuale</strong> - Capitale già accumulato che verrà rivalutato<br>
-            • <strong>Strategia del secondo fondo pensione</strong> - Simulazione per calcolare spazi di deducibilità da investire in un secondo fondo pensione<br>
+            • <strong>Strategia del secondo fondo pensione</strong> - Simulazione per calcolare ulteriori spazi di deducibilità<br>
             • <strong>Disclaimer</strong> - Strumento esclusivamente informativo e didattico.
         </div>
         
@@ -1134,10 +1259,7 @@
             
             <!-- TESTO GRANDE COME FUNZIONA -->
             <div class="come-funziona-grande">
-                📢 Investi la capienza deducibile residua ogni anno in un secondo fondo con profilo di rischio/rendimento diverso dal fondo principale.
-                E' possibile anche simulare un investimento  nel secondo fondo con un profilo rischio/rendimento piu' basso del fondo principale. 
-                Semplicemnete modifica le ipotesi di rendimento nella casella "secondo fondo pensione". Modifica Rendimento atteso:1,5% e volatilità: 1% (cosi simuli un investimento a capitale garantito).
-                Vuoi simulare l'andamento di un investimento nell' S&P500 . Modifica rendimento atteso in 12% e volatilita in 14%. Divertiti a Simulare.
+                📢 Investi la capienza deducibile residua ogni anno in questo secondo fondo.
             </div>
             
             <div id="secondoFondoContent">
@@ -1149,7 +1271,7 @@
         <div class="importi-simulati-box" id="importiSimulatiBox">
             <div class="importi-simulati-title">
                 <span>💰 IMPORTI SIMULATI</span>
-                <span class="badge" style="background: #0b4f6c;">al pensionamento</span>
+                <span class="badge" style="background: #0b4f6c; color: white;">al pensionamento</span>
             </div>
             
             <div id="importiSimulatiContent">
@@ -1356,33 +1478,44 @@
                         </div>
                     </div>
                     
+                    <!-- DEDUZIONE FISCALE - NUOVO DESIGN PROFESSIONALE -->
                     <div class="deduzione-box">
                         <div class="deduzione-title">
-                            <span>💰 DEDUZIONE FISCALE</span>
-                            <span style="font-size: 0.7rem; background: #0b4f6c; color: white; padding: 3px 10px; border-radius: 30px;">ESCLUSO TFR</span>
-                        </div>
-                        <div class="deduzione-row">
-                            <span class="deduzione-label">🏢 Contributo datoriale:</span>
-                            <span class="deduzione-importo">€ ${formatNumber(contributoDatorialeAnnuale)}</span>
-                        </div>
-                        <div class="deduzione-row">
-                            <span class="deduzione-label">👤 Contributo dipendente:</span>
-                            <span class="deduzione-importo">€ ${formatNumber(contributoDipendenteAnnuale)}</span>
-                        </div>
-                        <div class="deduzione-row" style="border-bottom: 2px solid #0b4f6c;">
-                            <span class="deduzione-label" style="font-weight: 800;">TOTALE DEDUCIBILE:</span>
-                            <span class="deduzione-importo" style="font-size: 1.2em;">€ ${formatNumber(contributoDeducibileAnnuale)}</span>
+                            <span>💰 DEDUZIONE FISCALE ANNUALE</span>
+                            <span style="font-size: 0.7rem; background: #64748b; color: white; padding: 4px 12px; border-radius: 30px;">ESCLUSO TFR</span>
                         </div>
                         
-                        <div class="deduzione-massimale">
-                            <div style="display: flex; justify-content: space-between; align-items: center;">
-                                <span style="font-weight: 700;">📌 Massimale 2025:</span>
-                                <span style="font-size: 1.2em; font-weight: 800;">€ 5.300</span>
+                        <div class="deduzione-tabella">
+                            <div class="deduzione-row">
+                                <span class="deduzione-label">
+                                    <span style="font-size: 1.1em;">🏢</span> Contributo datoriale
+                                </span>
+                                <span class="deduzione-importo">€ ${formatNumber(contributoDatorialeAnnuale)}</span>
+                            </div>
+                            <div class="deduzione-row">
+                                <span class="deduzione-label">
+                                    <span style="font-size: 1.1em;">👤</span> Contributo dipendente
+                                </span>
+                                <span class="deduzione-importo">€ ${formatNumber(contributoDipendenteAnnuale)}</span>
                             </div>
                         </div>
                         
+                        <div class="deduzione-totale">
+                            <span class="deduzione-totale-label">
+                                <span style="font-size: 1.2em;">💰</span> TOTALE DEDUCIBILE
+                            </span>
+                            <span class="deduzione-totale-importo">€ ${formatNumber(contributoDeducibileAnnuale)}</span>
+                        </div>
+                        
+                        <div class="deduzione-massimale">
+                            <span>
+                                <span style="font-size: 1.1em;">📌</span> Massimale deducibile 2025
+                            </span>
+                            <span>€ 5.300</span>
+                        </div>
+                        
                         <div class="deduzione-differenza">
-                            <span style="font-weight: 600;">DIFFERENZA:</span>
+                            <span style="font-weight: 700; color: #334155;">DIFFERENZA VS MASSIMALE</span>
                             ${differenzaMassimale >= 0 ? 
                                 `<span class="differenza-positiva">+ € ${formatNumber(differenzaMassimale)}</span>` : 
                                 `<span class="differenza-negativa">- € ${formatNumber(Math.abs(differenzaMassimale))}</span>`
@@ -1390,30 +1523,33 @@
                         </div>
                         
                         ${eccedenzaNonDeducibile > 0 ? 
-                            `<div style="background: #ffc107; color: #0b4f6c; padding: 12px; border-radius: 8px; margin-top: 12px; text-align: center; font-size: 0.9em;">
+                            `<div class="eccedenza-box">
                                 ⚠️ Eccedenza non deducibile: € ${formatNumber(eccedenzaNonDeducibile)}/anno
                             </div>` : 
-                            `<div style="background: #28a745; color: white; padding: 12px; border-radius: 8px; margin-top: 12px; text-align: center; font-size: 0.9em;">
-                                ✅ Capienza residua: € ${formatNumber(capienzaResidua)}/anno
+                            `<div class="capienza-box">
+                                ✅ Capienza deducibile residua: € ${formatNumber(capienzaResidua)}/anno
                             </div>`
                         }
                         
-                        <div style="margin-top: 12px; font-size: 0.85em; background: rgba(255,255,255,0.7); padding: 10px; border-radius: 8px;">
-                            <strong>💡 RISPARMIO FISCALE:</strong> € ${formatNumber(risparmioFiscaleAnnualePrincipale)}/anno (IRPEF ${(aliquotaIrpef*100).toFixed(0)}%)
+                        <div class="risparmio-fiscale-card">
+                            <span class="risparmio-fiscale-label">
+                                <span style="font-size: 1.1em;">💡</span> Risparmio fiscale stimato
+                            </span>
+                            <span class="risparmio-fiscale-importo">€ ${formatNumber(risparmioFiscaleAnnualePrincipale)}/anno (IRPEF ${(aliquotaIrpef*100).toFixed(0)}%)</span>
                         </div>
                     </div>
                     
                     <div style="margin-top: 20px;">
                         <div class="result-item">
-                            <span>💰 Montante netto:</span>
+                            <span>💰 Montante netto (dopo tasse):</span>
                             <span class="result-value">€ ${formatNumber(montanteNetto)}</span>
                         </div>
                         <div class="result-item">
-                            <span>📊 Montante reale:</span>
+                            <span>📊 Montante reale (inflazione):</span>
                             <span class="result-value">€ ${formatNumber(montanteReale)}</span>
                         </div>
                         <div class="result-item">
-                            <span>💶 Rendita annua:</span>
+                            <span>💶 Rendita annua stimata:</span>
                             <span class="result-value">€ ${formatNumber(renditaAnnua)}/anno</span>
                         </div>
                     </div>
@@ -1435,17 +1571,17 @@
                         <span class="result-value">€ ${formatNumber(tfrAnnuale)}/anno</span>
                     </div>
                     <div class="result-item" style="border-bottom: 2px solid rgba(255,255,255,0.3);">
-                        <span><strong>TOTALE:</strong></span>
+                        <span><strong>TOTALE ANNUALE:</strong></span>
                         <span style="font-size: 1.3em; color: #ffd966; font-weight: 700;">€ ${formatNumber(contributoAnnualeTotale)}</span>
                     </div>
                     
                     <div style="background: rgba(255,255,255,0.1); padding: 12px; border-radius: 10px; margin-top: 12px;">
                         <div style="display: flex; justify-content: space-between;">
-                            <span>📊 Totale contributi:</span>
+                            <span>📊 Totale contributi versati:</span>
                             <span style="font-weight: 700;">€ ${formatNumber(totaleContributi)}</span>
                         </div>
                         <div style="display: flex; justify-content: space-between; margin-top: 6px;">
-                            <span>📈 Guadagno rendimenti:</span>
+                            <span>📈 Guadagno da rendimenti:</span>
                             <span style="font-weight: 700; color: #a8e6cf;">€ ${formatNumber(contributiFuturiRivalutati - totaleContributi)}</span>
                         </div>
                     </div>
@@ -1454,13 +1590,13 @@
                 // ========== GENERAZIONE HTML STRATEGIA SECONDO FONDO ==========
                 document.getElementById('secondoFondoContent').innerHTML = `
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div style="background: white; padding: 20px; border-radius: 16px; border: 2px solid #4f46e5; box-shadow: 0 6px 0 #3730a3;">
+                        <div style="background: white; padding: 20px; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 6px 0 #3730a3; border-top: 6px solid #4f46e5;">
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
                                 <span style="font-weight: 800; color: #3730a3; font-size: 1.2em;">📊 PARAMETRI</span>
                                 <span style="background: #4f46e5; color: white; padding: 4px 12px; border-radius: 30px; font-size: 0.75em;">Personalizzati</span>
                             </div>
                             <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
-                                <span style="color: #4b5563;">Rendimento:</span>
+                                <span style="color: #4b5563;">Rendimento atteso:</span>
                                 <span style="font-weight: 700; color: #3730a3;">${(rendimentoSecondo*100).toFixed(1)}%</span>
                             </div>
                             <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
@@ -1468,52 +1604,54 @@
                                 <span style="font-weight: 700; color: #3730a3;">${(volatilitaSecondo*100).toFixed(1)}%</span>
                             </div>
                             <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
-                                <span style="color: #4b5563;">Investimento/anno:</span>
+                                <span style="color: #4b5563;">Investimento annuale:</span>
                                 <span style="font-weight: 700; color: #3730a3;">€ ${formatNumber(capienzaResidua)}</span>
                             </div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 12px; padding-top: 12px; border-top: 2px solid #e0e7ff;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 12px; padding-top: 12px; border-top: 1px solid #e2e8f0;">
                                 <span style="color: #4b5563;">Totale versamenti:</span>
                                 <span style="font-weight: 800; color: #3730a3; font-size: 1.1em;">€ ${formatNumber(totaleVersamentiSecondoFondo)}</span>
                             </div>
                             
-                            <div style="background: linear-gradient(145deg, #e0e7ff, #c7d2fe); padding: 12px; border-radius: 10px; margin: 12px 0;">
+                            <div style="background: linear-gradient(145deg, #eef2ff, #e0e7ff); padding: 12px; border-radius: 12px; margin: 12px 0;">
                                 <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 5px;">
-                                    <span style="font-weight: 700; color: #3730a3; font-size: 0.9em;">VERSAMENTI NETTO:</span>
+                                    <span style="font-weight: 700; color: #3730a3;">💰 VERSAMENTI AL NETTO RISPARMIO:</span>
                                     <span style="font-size: 1.2em; font-weight: 800; color: #3730a3;">€ ${formatNumber(versamentiNettoRisparmio)}</span>
                                 </div>
                             </div>
                             
-                            <div style="background: #fef9e7; padding: 12px; border-radius: 10px; border: 2px solid #d97706;">
+                            <div style="background: #fef9e7; padding: 12px; border-radius: 12px; border: 1px solid #f59e0b;">
                                 <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
-                                    <span style="color: #92400e; font-size: 0.9em;">Risparmio fiscale/anno:</span>
+                                    <span style="color: #92400e;">Risparmio fiscale annuo (43%):</span>
                                     <span style="font-weight: 800; color: #92400e;">€ ${formatNumber(risparmioFiscaleAnnualeSecondo)}</span>
                                 </div>
                                 <div style="display: flex; justify-content: space-between;">
-                                    <span style="color: #92400e; font-size: 0.9em;">Risparmio fiscale totale:</span>
+                                    <span style="color: #92400e;">Risparmio fiscale totale:</span>
                                     <span style="font-weight: 800; color: #92400e;">€ ${formatNumber(risparmioFiscaleTotaleSecondo)}</span>
                                 </div>
                             </div>
                         </div>
                         
-                        <div style="background: white; padding: 20px; border-radius: 16px; border: 2px solid #4f46e5; box-shadow: 0 6px 0 #3730a3;">
+                        <div style="background: white; padding: 20px; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 6px 0 #3730a3; border-top: 6px solid #4f46e5;">
                             <div style="text-align: center; margin-bottom: 16px;">
                                 <span style="font-weight: 800; color: #3730a3; font-size: 1.2em;">📈 MONTANTI</span>
                             </div>
                             
-                            <div style="text-align: center; padding: 16px; background: linear-gradient(145deg, #e0e7ff, #c7d2fe); border-radius: 12px; margin-bottom: 16px;">
-                                <div style="font-size: 0.8em; color: #3730a3; text-transform: uppercase;">MONTANTE MEDIANO</div>
+                            <div style="text-align: center; padding: 16px; background: linear-gradient(145deg, #eef2ff, #e0e7ff); border-radius: 12px; margin-bottom: 16px;">
+                                <div style="font-size: 0.8em; color: #3730a3; text-transform: uppercase; letter-spacing: 1px;">MONTANTE MEDIANO</div>
                                 <div style="font-size: 2em; font-weight: 800; color: #3730a3; margin: 8px 0;">€ ${formatNumber(montanteMediano)}</div>
-                                <div style="font-size: 0.75em;">Dopo ${anniContribuzione} anni</div>
+                                <div style="font-size: 0.75em; color: #64748b;">Dopo ${anniContribuzione} anni</div>
                             </div>
                             
                             <div class="scenari-grid">
-                                <div class="scenario-box scenario-ottimistico">
-                                    <div class="scenario-label">OTTIMISTICO</div>
-                                    <div class="scenario-valore">€ ${formatNumber(montanteOttimistico)}</div>
+                                <div class="scenario-box scenario-ottimistico" style="background: #f0fdf4; border-left: 6px solid #16a34a; padding: 12px;">
+                                    <div style="font-size: 0.7em; font-weight: 700; color: #166534; text-transform: uppercase;">OTTIMISTICO</div>
+                                    <div style="font-size: 1.1em; font-weight: 800; color: #166534;">€ ${formatNumber(montanteOttimistico)}</div>
+                                    <div style="font-size: 0.65em; color: #166534;">+1 dev (${(rendimentoOttimistico*100).toFixed(1)}%)</div>
                                 </div>
-                                <div class="scenario-box scenario-pessimistico">
-                                    <div class="scenario-label">PESSIMISTICO</div>
-                                    <div class="scenario-valore">€ ${formatNumber(montantePessimistico)}</div>
+                                <div class="scenario-box scenario-pessimistico" style="background: #fef2f2; border-left: 6px solid #dc2626; padding: 12px;">
+                                    <div style="font-size: 0.7em; font-weight: 700; color: #991b1b; text-transform: uppercase;">PESSIMISTICO</div>
+                                    <div style="font-size: 1.1em; font-weight: 800; color: #991b1b;">€ ${formatNumber(montantePessimistico)}</div>
+                                    <div style="font-size: 0.65em; color: #991b1b;">-1 dev (${((rendimentoSecondo - volatilitaSecondo)*100).toFixed(1)}%)</div>
                                 </div>
                             </div>
                         </div>
@@ -1531,7 +1669,7 @@
                                 € ${formatNumber(montante)}
                             </div>
                             <div class="importi-label">
-                                Montante finale
+                                Montante finale al pensionamento
                             </div>
                         </div>
                         
@@ -1543,12 +1681,12 @@
                                 € ${formatNumber(montanteMediano)}
                             </div>
                             <div class="importi-label">
-                                Montante mediano
+                                Montante mediano al pensionamento
                             </div>
                         </div>
                     </div>
-                    <div style="text-align: center; margin-top: 16px; padding: 12px; background: #f8f9fa; border-radius: 10px; font-size: 0.95em;">
-                        <strong>💰 CAPITALE COMPLESSIVO:</strong> € ${formatNumber(montante + montanteMediano)}
+                    <div style="text-align: center; margin-top: 20px; padding: 16px; background: #0b4f6c; border-radius: 12px; color: white; font-size: 1.1em;">
+                        <strong>💰 CAPITALE COMPLESSIVO ACCUMULATO:</strong> € ${formatNumber(montante + montanteMediano)}
                     </div>
                 `;
                 
