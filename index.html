@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategia Doppio Fondo Pensione - Calcolatore</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0b4f6c 0%, #1d7a8c 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 1400px;
+            width: 100%;
+            background: white;
+            border-radius: 25px;
+            padding: 35px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+        }
+        
+        h1 {
+            color: #0b4f6c;
+            margin-top: 0;
+            text-align: center;
+            font-size: 2.3em;
+            border-bottom: 4px solid #1d7a8c;
+            padding-bottom: 15px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-top: -5px;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 992px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .input-panel {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid #e9ecef;
+        }
+        
+        .result-panel {
+            background: linear-gradient(145deg, #0b4f6c 0%, #1d7a8c 100%);
+            padding: 30px;
+            border-radius: 20px;
+            color: white;
+            box-shadow: 0 15px 30px rgba(11,79,108,0.3);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: #2c3e50;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1.05em;
+            transition: all 0.3s;
+            background: white;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #1d7a8c;
+            box-shadow: 0 0 0 4px rgba(29,122,140,0.1);
+        }
+        
+        .input-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .input-group input {
+            flex: 1;
+        }
+        
+        .input-group span {
+            background: #e9ecef;
+            padding: 14px 18px;
+            border-radius: 12px;
+            color: #2c3e50;
+            font-weight: 700;
+            font-size: 0.95em;
+            white-space: nowrap;
+        }
+        
+        .fondo-attuale-box {
+            background: linear-gradient(145deg, #fff3e0, #ffe0b2);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 2px solid #ff9800;
+            box-shadow: 0 5px 0 #e65100;
+        }
+        
+        .fondo-attuale-title {
+            color: #e65100;
+            font-size: 1.1em;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .secondo-fondo-box {
+            background: linear-gradient(145deg, #e0e7ff, #c7d2fe);
+            padding: 25px;
+            border-radius: 18px;
+            margin: 25px 0;
+            border: 2px solid #4f46e5;
+            box-shadow: 0 8px 0 #3730a3;
+        }
+        
+        .secondo-fondo-title {
+            color: #3730a3;
+            font-size: 1.2em;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .parametri-aggressivo {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #4f46e5;
+        }
+        
+        .parametri-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .parametro-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .parametro-label {
+            font-size: 0.8em;
+            font-weight: 600;
+            color: #3730a3;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        
+        .parametro-input {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .parametro-input input {
+            flex: 1;
+            padding: 10px 12px;
+            border: 2px solid #e0e7ff;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+        
+        .parametro-input span {
+            background: #4f46e5;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: 700;
+        }
+        
+        .montante-mediano {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 2px solid #4f46e5;
+        }
+        
+        .montante-mediano-label {
+            font-size: 0.9em;
+            color: #3730a3;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .montante-mediano-valore {
+            font-size: 2.5em;
+            font-weight: 800;
+            color: #3730a3;
+            line-height: 1.2;
+            margin: 10px 0;
+        }
+        
+        .scenari-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .scenario-box {
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .scenario-ottimistico {
+            background: #dcfce7;
+            border-left: 6px solid #16a34a;
+        }
+        
+        .scenario-pessimistico {
+            background: #fee2e2;
+            border-left: 6px solid #dc2626;
+        }
+        
+        .scenario-label {
+            font-size: 0.75em;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        
+        .scenario-valore {
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+        
+        .deduzione-box {
+            background: linear-gradient(145deg, #e8f4f8, #d1e7f0);
+            padding: 25px;
+            border-radius: 18px;
+            margin: 25px 0;
+            border: 2px solid #0b4f6c;
+            box-shadow: 0 8px 0 #0b4f6c;
+        }
+        
+        .deduzione-title {
+            color: #0b4f6c;
+            font-size: 1.2em;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .deduzione-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(11,79,108,0.2);
+        }
+        
+        .deduzione-label {
+            font-weight: 600;
+            color: #0b4f6c;
+        }
+        
+        .deduzione-importo {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #0b4f6c;
+        }
+        
+        .deduzione-massimale {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 15px;
+            border-left: 6px solid #ffc107;
+        }
+        
+        .deduzione-differenza {
+            background: #0b4f6c;
+            color: white;
+            padding: 18px;
+            border-radius: 12px;
+            margin-top: 20px;
+            font-size: 1.1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .differenza-positiva {
+            color: #ffd966;
+            font-size: 1.4em;
+            font-weight: 800;
+        }
+        
+        .differenza-negativa {
+            color: #ff8a8a;
+            font-size: 1.4em;
+            font-weight: 800;
+        }
+        
+        .contributo-box {
+            background: #e8f4f8;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+            border-left: 6px solid #1d7a8c;
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 18px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            font-size: 1.05em;
+        }
+        
+        .result-value {
+            font-size: 1.35em;
+            font-weight: 700;
+            color: #ffd966;
+        }
+        
+        .highlight {
+            background: rgba(255,255,255,0.15);
+            padding: 25px;
+            border-radius: 18px;
+            margin: 25px 0;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .highlight .montante {
+            font-size: 2.8em;
+            font-weight: 800;
+            color: #ffd966;
+            line-height: 1.2;
+            margin: 10px 0;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .button {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(145deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.25em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 10px 20px rgba(40,167,69,0.2);
+        }
+        
+        .button:hover {
+            background: linear-gradient(145deg, #20c997, #28a745);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(40,167,69,0.3);
+        }
+        
+        .note {
+            font-size: 0.85em;
+            color: #5a6c7e;
+            margin-top: 25px;
+            padding: 20px;
+            background: #fff9e6;
+            border-radius: 15px;
+            border-left: 6px solid #ffc107;
+            line-height: 1.6;
+        }
+        
+        .tooltip-info {
+            background: #e1f5fe;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            color: #01579b;
+            font-size: 0.95em;
+            border-left: 6px solid #0288d1;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 30px;
+            font-size: 0.8em;
+            font-weight: 700;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .default-badge {
+            background: #16a34a;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 30px;
+            font-size: 0.7em;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-left: 10px;
+        }
+        
+        .secondo-fondo-bottom {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 4px solid #4f46e5;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        
+        .secondo-fondo-bottom-title {
+            color: #3730a3;
+            font-size: 1.8em;
+            font-weight: 800;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 3px solid #4f46e5;
+            padding-bottom: 15px;
+        }
+        
+        .come-funziona-grande {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #3730a3;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(145deg, #f0f3ff, #e0e7ff);
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border: 2px dashed #4f46e5;
+            line-height: 1.5;
+        }
+        
+        .capitale-ripartizione {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .capitale-box {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .capitale-label {
+            font-size: 0.8em;
+            opacity: 0.9;
+        }
+        
+        .capitale-valore {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #ffd966;
+        }
+        
+        hr {
+            border: none;
+            border-top: 2px solid rgba(255,255,255,0.15);
+            margin: 25px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏢 STRATEGIA DOPPIO FONDO PENSIONE</h1>
+        <div class="subtitle">Calcolatore e Simulatore della Strategia del doppio fondo Pensioni per Dipendenti iscritti a Fondi pensione Negoziali</div>
+        
+        <div class="tooltip-info">
+            <strong>📌 NOVITÀ LEGGE DI BILANCIO 2025:</strong><br>
+            • <strong>💰 Nuovo massimale deducibile: €5.300 annui</strong> <br>
+            • <strong>TFR annuo (7,41% RAL)</strong> - Calcolo del Trattamento di Fine Rapporto secondo la normativa<br>
+            • <strong>Contributo datoriale</strong> - Percentuale aggiuntiva versata dal datore di lavoro obbligatoria per ottenere contributo datoriale<br>
+            • <strong>Contributo dipendente</strong> - Percentuale trattenuta dalla busta paga<br>
+            • <strong>Fondo Pensione attuale</strong> - Capitale già accumulato che verrà rivalutato<br>
+            • <strong>Strategia del secondo fondo pensione</strong> - Simulazione investimento della capienza deducibile con parametri personalizzabili
+        </div>
+        
+        <div class="grid">
+            <!-- PANNELLO INPUT -->
+            <div class="input-panel">
+                <h2 style="color: #0b4f6c; margin-top: 0; margin-bottom: 25px; font-size: 1.8em;">📋 PARAMETRI</h2>
+                
+                <!-- ETÀ ATTUALE - Default 50 -->
+                <div class="form-group">
+                    <label>🎂 ETÀ ATTUALE <span class="default-badge">Default 50</span></label>
+                    <input type="number" id="eta" min="18" max="70" value="50" step="1">
+                </div>
+                
+                <!-- ETÀ PENSIONAMENTO -->
+                <div class="form-group">
+                    <label>🏁 ETÀ PENSIONAMENTO</label>
+                    <input type="number" id="etaPensione" min="50" max="75" value="67" step="1">
+                    <div style="font-size: 0.85em; color: #666; margin-top: 5px;">
+                        Anni di contribuzione: <span id="anniDisplay">17</span> anni
+                    </div>
+                </div>
+                
+                <!-- RAL - Default 60.000 -->
+                <div class="form-group">
+                    <label>💰 RAL (Retribuzione Annua Lorda) <span class="default-badge">Default €60.000</span></label>
+                    <div class="input-group">
+                        <input type="number" id="ral" min="15000" step="1000" value="60000">
+                        <span>€/anno</span>
+                    </div>
+                </div>
+                
+                <!-- IMPORTO ATTUALE FONDO PENSIONE - Default 98.000 -->
+                <div class="fondo-attuale-box">
+                    <div class="fondo-attuale-title">
+                        <span>💰 FONDO PENSIONE ATTUALE <span class="default-badge" style="background: #e65100;">Default €98.000</span></span>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label style="color: #e65100;">IMPORTO GIÀ ACCUMULATO</label>
+                        <div class="input-group">
+                            <input type="number" id="fondoAttuale" min="0" step="1000" value="98000">
+                            <span>€</span>
+                        </div>
+                        <div style="font-size: 0.85em; color: #e65100; margin-top: 8px;">
+                            ⚠️ Questo importo verrà rivalutato annualmente fino al pensionamento
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contributo-box">
+                    <h3 style="color: #0b4f6c; margin-top: 0; margin-bottom: 20px;">🔧 CONTRIBUTI PREVIDENZIALI</h3>
+                    
+                    <!-- CONTRIBUTO DATORIALE - Default 1,6% -->
+                    <div class="form-group">
+                        <label>🏢 CONTRIBUTO DATORIALE <span class="default-badge">Default 1,6%</span></label>
+                        <div class="input-group">
+                            <input type="number" id="contributoDatoriale" min="0" max="10" step="0.1" value="1.6">
+                            <span>%</span>
+                        </div>
+                        <div style="font-size: 0.85em; color: #666; margin-top: 5px;">
+                            Versato dal datore di lavoro
+                        </div>
+                    </div>
+                    
+                    <!-- CONTRIBUTO DIPENDENTE - Default 1% -->
+                    <div class="form-group">
+                        <label>👤 CONTRIBUTO DIPENDENTE <span class="default-badge">Default 1%</span></label>
+                        <div class="input-group">
+                            <input type="number" id="contributoDipendente" min="0" max="15" step="0.1" value="1">
+                            <span>%</span>
+                        </div>
+                        <div style="font-size: 0.85em; color: #666; margin-top: 5px;">
+                            Trattenuta in busta paga
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PARAMETRI FINANZIARI FONDO PENSIONE PRINCIPALE -->
+                <div style="margin-top: 25px;">
+                    <div class="form-group">
+                        <label>📈 RENDIMENTO ANNUO ATTESO (FONDO PRINCIPALE)</label>
+                        <select id="rendimento">
+                            <option value="1">🛡️ Conservativo (1%) - Linea garantita</option>
+                            <option value="2">⚖️ Prudente (2%) - Obbligazionario breve</option>
+                            <option value="3" selected>📊 Moderato (3%) - Bilanciato</option>
+                            <option value="4">📈 Dinamico (4%) - Azionario moderato</option>
+                            <option value="6">🚀 Aggressivo (6%) - Prevalenza azionaria</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>📉 INFLAZIONE ATTESA</label>
+                        <select id="inflazione">
+                            <option value="1">🐢 Bassa (1%)</option>
+                            <option value="1.5">⚖️ Moderata (1.5%)</option>
+                            <option value="2" selected>📊 Media (2%)</option>
+                            <option value="2.5">📈 Alta (2.5%)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- PARAMETRI STRATEGIA SECONDO FONDO - Default 6% e 10% -->
+                <div class="secondo-fondo-box" style="margin-top: 30px;">
+                    <div class="secondo-fondo-title">
+                        <span>🚀 STRATEGIA DEL SECONDO FONDO PENSIONE</span>
+                    </div>
+                    
+                    <div class="parametri-aggressivo">
+                        <div style="font-weight: 700; color: #3730a3; margin-bottom: 15px;">📊 PERSONALIZZA PARAMETRI</div>
+                        
+                        <div class="parametri-grid">
+                            <div class="parametro-item">
+                                <span class="parametro-label">Rendimento atteso annuo</span>
+                                <div class="parametro-input">
+                                    <input type="number" id="rendimentoAggressivo" min="1" max="15" step="0.5" value="6">
+                                    <span>%</span>
+                                </div>
+                                <span class="default-badge" style="background: #4f46e5; margin-left: 0; margin-top: 5px;">Default 6%</span>
+                            </div>
+                            <div class="parametro-item">
+                                <span class="parametro-label">Volatilità attesa</span>
+                                <div class="parametro-input">
+                                    <input type="number" id="volatilitaAggressivo" min="1" max="30" step="0.5" value="10">
+                                    <span>%</span>
+                                </div>
+                                <span class="default-badge" style="background: #4f46e5; margin-left: 0; margin-top: 5px;">Default 10%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button onclick="calcolaSimulazione()" class="button">🔮 CALCOLA PROIEZIONE PENSIONISTICA</button>
+            </div>
+            
+            <!-- PANNELLO RISULTATI FONDO PRINCIPALE -->
+            <div class="result-panel" id="risultati">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+                    <h2 style="color: white; margin: 0; font-size: 1.8em;">📊 FONDO PRINCIPALE</h2>
+                    <span class="badge">Risultati</span>
+                </div>
+                
+                <div id="risultati-content">
+                    <!-- I risultati vengono inseriti qui -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- SEZIONE STRATEGIA DEL SECONDO FONDO PENSIONE IN BASSO -->
+        <div class="secondo-fondo-bottom" id="secondoFondoBottom">
+            <div class="secondo-fondo-bottom-title">
+                <span>🚀 STRATEGIA DEL SECONDO FONDO PENSIONE</span>
+            </div>
+            
+            <!-- TESTO GRANDE COME FUNZIONA -->
+            <div class="come-funziona-grande">
+                📢 Come funziona: Investi la capienza deducibile residua ogni anno in questo secondo fondo.
+            </div>
+            
+            <div id="secondoFondoContent">
+                <!-- I risultati del secondo fondo vengono inseriti qui -->
+            </div>
+        </div>
+        
+        <div class="note">
+            <strong>⚠️ NOTA BENE:</strong> La simulazione ha scopo puramente illustrativo. 
+            Il TFR è calcolato al <strong>7,41% della RAL</strong> secondo la normativa vigente. 
+            <strong>Il massimale deducibile è stato aggiornato a €5.300 secondo la Legge di Bilancio 2025.</strong>
+            I rendimenti passati non sono indicativi di quelli futuri. 
+            La tassazione agevolata dei fondi pensione è al 15% riducibile al 9% dopo 35 anni.
+            <strong>La Strategia del secondo fondo pensione è fiscalmente deducibile.</strong> Il risparmio fiscale del 43% è calcolato per RAL superiori a €55.000 (importi inferiori generano deduzioni inferiori).
+            Consigliamo di consultare un consulente finanziario per valutazioni personalizzate.
+        </div>
+    </div>
+
+    <script>
+        function calcolaSimulazione() {
+            try {
+                // ========== RECUPERO VALORI INPUT ==========
+                const eta = parseInt(document.getElementById('eta').value);
+                const etaPensione = parseInt(document.getElementById('etaPensione').value);
+                const ral = parseFloat(document.getElementById('ral').value);
+                const fondoAttuale = parseFloat(document.getElementById('fondoAttuale').value) || 0;
+                const percDatoriale = parseFloat(document.getElementById('contributoDatoriale').value) / 100;
+                const percDipendente = parseFloat(document.getElementById('contributoDipendente').value) / 100;
+                const rendimento = parseFloat(document.getElementById('rendimento').value) / 100;
+                const inflazione = parseFloat(document.getElementById('inflazione').value) / 100;
+                
+                // ========== RECUPERO PARAMETRI SECONDO FONDO ==========
+                const rendimentoSecondo = parseFloat(document.getElementById('rendimentoAggressivo').value) / 100;
+                const volatilitaSecondo = parseFloat(document.getElementById('volatilitaAggressivo').value) / 100;
+                
+                // ========== VALIDAZIONE ==========
+                if (eta >= etaPensione) {
+                    alert('L\'età di pensionamento deve essere maggiore dell\'età attuale');
+                    return;
+                }
+                
+                // ========== CALCOLO ANNI CONTRIBUZIONE ==========
+                const anniContribuzione = etaPensione - eta;
+                document.getElementById('anniDisplay').innerHTML = anniContribuzione;
+                
+                // ========== CALCOLO TFR CON FORMULA 7,41% RAL ==========
+                const TFR_PERCENTUALE = 0.0741;
+                const tfrAnnuale = ral * TFR_PERCENTUALE;
+                
+                // ========== CALCOLO CONTRIBUTI ANNUALI ==========
+                const contributoDatorialeAnnuale = ral * percDatoriale;
+                const contributoDipendenteAnnuale = ral * percDipendente;
+                const contributoAnnualeTotale = tfrAnnuale + contributoDatorialeAnnuale + contributoDipendenteAnnuale;
+                
+                // ========== CALCOLO DEDUZIONE FISCALE ==========
+                const MASSIMALE_DEDUCIBILE = 5300.00;
+                const contributoDeducibileAnnuale = contributoDatorialeAnnuale + contributoDipendenteAnnuale;
+                const differenzaMassimale = MASSIMALE_DEDUCIBILE - contributoDeducibileAnnuale;
+                const contributoEffettivoDeducibile = Math.min(contributoDeducibileAnnuale, MASSIMALE_DEDUCIBILE);
+                const eccedenzaNonDeducibile = Math.max(0, contributoDeducibileAnnuale - MASSIMALE_DEDUCIBILE);
+                
+                // ========== CALCOLO CAPIENZA DEDUCIBILE RESIDUA ==========
+                const capienzaResidua = Math.max(0, differenzaMassimale);
+                
+                // ========== CALCOLO MONTANTE FONDO PRINCIPALE ==========
+                let montante = fondoAttuale;
+                let montanteSenzaFondoAttuale = 0;
+                let totaleContributi = 0;
+                
+                for(let i = 0; i < anniContribuzione; i++) {
+                    montante = montante * (1 + rendimento) + contributoAnnualeTotale;
+                    montanteSenzaFondoAttuale = montanteSenzaFondoAttuale * (1 + rendimento) + contributoAnnualeTotale;
+                    totaleContributi += contributoAnnualeTotale;
+                }
+                
+                const fondoAttualeRivalutato = fondoAttuale * Math.pow(1 + rendimento, anniContribuzione);
+                const contributiFuturiRivalutati = montante - fondoAttualeRivalutato;
+                
+                // ========== CALCOLO STRATEGIA SECONDO FONDO ==========
+                let montanteMediano = 0;
+                for(let i = 0; i < anniContribuzione; i++) {
+                    montanteMediano = montanteMediano * (1 + rendimentoSecondo) + capienzaResidua;
+                }
+                
+                let montanteOttimistico = 0;
+                const rendimentoOttimistico = rendimentoSecondo + volatilitaSecondo;
+                for(let i = 0; i < anniContribuzione; i++) {
+                    montanteOttimistico = montanteOttimistico * (1 + rendimentoOttimistico) + capienzaResidua;
+                }
+                
+                let montantePessimistico = 0;
+                const rendimentoPessimistico = Math.max(-0.99, rendimentoSecondo - volatilitaSecondo);
+                for(let i = 0; i < anniContribuzione; i++) {
+                    montantePessimistico = montantePessimistico * (1 + rendimentoPessimistico) + capienzaResidua;
+                }
+                
+                const totaleVersamentiSecondoFondo = capienzaResidua * anniContribuzione;
+                
+                const ALIQUOTA_RISPARMIO = 0.43;
+                const risparmioFiscaleAnnualeSecondo = capienzaResidua * ALIQUOTA_RISPARMIO;
+                const risparmioFiscaleTotaleSecondo = risparmioFiscaleAnnualeSecondo * anniContribuzione;
+                
+                const versamentiNettoRisparmio = totaleVersamentiSecondoFondo - risparmioFiscaleTotaleSecondo;
+                
+                const montanteReale = montante / Math.pow(1 + inflazione, anniContribuzione);
+                const renditaAnnua = montante * 0.04;
+                
+                // ========== TASSAZIONE AGEVOLATA ==========
+                const anniPermanenza = anniContribuzione;
+                let aliquotaTassazione;
+                if (anniPermanenza < 15) aliquotaTassazione = 15;
+                else if (anniPermanenza < 20) aliquotaTassazione = 13;
+                else if (anniPermanenza < 25) aliquotaTassazione = 12;
+                else if (anniPermanenza < 30) aliquotaTassazione = 11;
+                else if (anniPermanenza < 35) aliquotaTassazione = 10;
+                else aliquotaTassazione = 9;
+                
+                const tassazioneAgevolata = montante * (aliquotaTassazione / 100) * 0.5;
+                const montanteNetto = montante - tassazioneAgevolata;
+                
+                // ========== RISPARMIO FISCALE FONDO PRINCIPALE ==========
+                let aliquotaIrpef;
+                if (ral < 28000) aliquotaIrpef = 0.23;
+                else if (ral < 50000) aliquotaIrpef = 0.35;
+                else aliquotaIrpef = 0.43;
+                
+                const risparmioFiscaleAnnualePrincipale = contributoEffettivoDeducibile * aliquotaIrpef;
+                const risparmioFiscaleTotalePrincipale = risparmioFiscaleAnnualePrincipale * anniContribuzione;
+                
+                const roiTotale = ((montante / (totaleContributi + fondoAttuale)) - 1) * 100;
+                
+                // ========== GENERAZIONE HTML RISULTATI ==========
+                document.getElementById('risultati-content').innerHTML = `
+                    <div class="highlight">
+                        <div style="font-size: 1.1em; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px;">MONTANTE FINALE TOTALE</div>
+                        <div class="montante">€ ${formatNumber(montante)}</div>
+                        <div style="opacity: 0.9; margin-top: 10px;">Dopo ${anniContribuzione} anni</div>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 12px; margin-bottom: 20px;">
+                        <h4 style="color: white; margin-top: 0; margin-bottom: 15px; text-align: center;">📊 RIPARTIZIONE CAPITALE</h4>
+                        <div class="capitale-ripartizione">
+                            <div class="capitale-box">
+                                <div class="capitale-label">Fondo attuale rivalutato</div>
+                                <div class="capitale-valore">€ ${formatNumber(fondoAttualeRivalutato)}</div>
+                                <div style="font-size: 0.75em;">+${((fondoAttualeRivalutato/fondoAttuale - 1)*100).toFixed(1)}%</div>
+                            </div>
+                            <div class="capitale-box">
+                                <div class="capitale-label">Contributi futuri + rendimenti</div>
+                                <div class="capitale-valore">€ ${formatNumber(contributiFuturiRivalutati)}</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="deduzione-box">
+                        <div class="deduzione-title">
+                            <span>💰 DEDUZIONE FISCALE ANNUALE</span>
+                            <span style="font-size: 0.8rem; background: #0b4f6c; color: white; padding: 4px 12px; border-radius: 30px;">ESCLUSO TFR</span>
+                        </div>
+                        <div class="deduzione-row">
+                            <span class="deduzione-label">🏢 Contributo datoriale:</span>
+                            <span class="deduzione-importo">€ ${formatNumber(contributoDatorialeAnnuale)}</span>
+                        </div>
+                        <div class="deduzione-row">
+                            <span class="deduzione-label">👤 Contributo dipendente:</span>
+                            <span class="deduzione-importo">€ ${formatNumber(contributoDipendenteAnnuale)}</span>
+                        </div>
+                        <div class="deduzione-row" style="border-bottom: 2px solid #0b4f6c;">
+                            <span class="deduzione-label" style="font-weight: 800;">TOTALE DEDUCIBILE:</span>
+                            <span class="deduzione-importo" style="font-size: 1.4em;">€ ${formatNumber(contributoDeducibileAnnuale)}</span>
+                        </div>
+                        
+                        <div class="deduzione-massimale">
+                            <div style="display: flex; justify-content: space-between;">
+                                <span style="font-weight: 700;">📌 Massimale deducibile (Legge Bilancio 2025):</span>
+                                <span style="font-size: 1.3em; font-weight: 800;">€ 5.300</span>
+                            </div>
+                        </div>
+                        
+                        <div class="deduzione-differenza">
+                            <span style="font-weight: 600;">DIFFERENZA vs MASSIMALE:</span>
+                            ${differenzaMassimale >= 0 ? 
+                                `<span class="differenza-positiva">+ € ${formatNumber(differenzaMassimale)}</span>` : 
+                                `<span class="differenza-negativa">- € ${formatNumber(Math.abs(differenzaMassimale))}</span>`
+                            }
+                        </div>
+                        
+                        ${eccedenzaNonDeducibile > 0 ? 
+                            `<div style="background: #ffc107; color: #0b4f6c; padding: 15px; border-radius: 10px; margin-top: 15px; text-align: center;">
+                                ⚠️ Eccedenza non deducibile: € ${formatNumber(eccedenzaNonDeducibile)}/anno
+                            </div>` : 
+                            `<div style="background: #28a745; color: white; padding: 15px; border-radius: 10px; margin-top: 15px; text-align: center;">
+                                ✅ Capienza deducibile residua: € ${formatNumber(capienzaResidua)}/anno
+                            </div>`
+                        }
+                        
+                        <div style="margin-top: 15px; font-size: 0.85em; background: rgba(255,255,255,0.7); padding: 10px; border-radius: 8px;">
+                            <strong>💡 RISPARMIO FISCALE:</strong> € ${formatNumber(risparmioFiscaleAnnualePrincipale)}/anno (IRPEF ${(aliquotaIrpef*100).toFixed(0)}%)
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 25px;">
+                        <div class="result-item">
+                            <span>💰 Montante netto (dopo tasse):</span>
+                            <span class="result-value">€ ${formatNumber(montanteNetto)}</span>
+                        </div>
+                        <div class="result-item">
+                            <span>📊 Montante reale (inflazione):</span>
+                            <span class="result-value">€ ${formatNumber(montanteReale)}</span>
+                        </div>
+                        <div class="result-item">
+                            <span>💶 Rendita annua stimata:</span>
+                            <span class="result-value">€ ${formatNumber(renditaAnnua)}/anno</span>
+                        </div>
+                    </div>
+                    
+                    <hr>
+                    
+                    <h3 style="color: white; margin: 0 0 15px 0;">📦 CONTRIBUTI ANNUALI</h3>
+                    
+                    <div class="result-item">
+                        <span>🏢 Contributo datoriale:</span>
+                        <span class="result-value">€ ${formatNumber(contributoDatorialeAnnuale)}/anno</span>
+                    </div>
+                    <div class="result-item">
+                        <span>👤 Contributo dipendente:</span>
+                        <span class="result-value">€ ${formatNumber(contributoDipendenteAnnuale)}/anno</span>
+                    </div>
+                    <div class="result-item">
+                        <span>📦 Quota TFR:</span>
+                        <span class="result-value">€ ${formatNumber(tfrAnnuale)}/anno</span>
+                    </div>
+                    <div class="result-item" style="border-bottom: 2px solid rgba(255,255,255,0.3);">
+                        <span><strong>TOTALE ANNUALE:</strong></span>
+                        <span style="font-size: 1.5em; color: #ffd966;">€ ${formatNumber(contributoAnnualeTotale)}</span>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 12px; margin-top: 15px;">
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>📊 Totale contributi versati:</span>
+                            <span style="font-weight: 700;">€ ${formatNumber(totaleContributi)}</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 8px;">
+                            <span>📈 Guadagno da rendimenti:</span>
+                            <span style="font-weight: 700; color: #a8e6cf;">€ ${formatNumber(contributiFuturiRivalutati - totaleContributi)}</span>
+                        </div>
+                    </div>
+                `;
+                
+                document.getElementById('secondoFondoContent').innerHTML = `
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                        <div style="background: white; padding: 25px; border-radius: 18px; border: 2px solid #4f46e5; box-shadow: 0 8px 0 #3730a3;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                                <span style="font-weight: 800; color: #3730a3; font-size: 1.3em;">📊 PARAMETRI</span>
+                                <span style="background: #4f46e5; color: white; padding: 5px 15px; border-radius: 30px;">Personalizzati</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                                <span>Rendimento atteso:</span>
+                                <span style="font-weight: 700; color: #3730a3;">${(rendimentoSecondo*100).toFixed(1)}%</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                                <span>Volatilità:</span>
+                                <span style="font-weight: 700; color: #3730a3;">${(volatilitaSecondo*100).toFixed(1)}%</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                                <span>Investimento annuale:</span>
+                                <span style="font-weight: 700; color: #3730a3;">€ ${formatNumber(capienzaResidua)}/anno</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 15px; padding-top: 15px; border-top: 2px solid #e0e7ff;">
+                                <span>Totale versamenti:</span>
+                                <span style="font-weight: 800; color: #3730a3; font-size: 1.2em;">€ ${formatNumber(totaleVersamentiSecondoFondo)}</span>
+                            </div>
+                            
+                            <div style="background: linear-gradient(145deg, #e0e7ff, #c7d2fe); padding: 15px; border-radius: 12px; margin: 15px 0;">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="font-weight: 700; color: #3730a3;">💰 VERSAMENTI AL NETTO RISPARMIO:</span>
+                                    <span style="font-size: 1.3em; font-weight: 800; color: #3730a3;">€ ${formatNumber(versamentiNettoRisparmio)}</span>
+                                </div>
+                            </div>
+                            
+                            <div style="background: #fef9e7; padding: 15px; border-radius: 12px; border: 2px solid #d97706;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                    <span style="color: #92400e;">Risparmio fiscale annuo (43%):</span>
+                                    <span style="font-weight: 800; color: #92400e;">€ ${formatNumber(risparmioFiscaleAnnualeSecondo)}</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span style="color: #92400e;">Risparmio fiscale totale:</span>
+                                    <span style="font-weight: 800; color: #92400e;">€ ${formatNumber(risparmioFiscaleTotaleSecondo)}</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="background: white; padding: 25px; border-radius: 18px; border: 2px solid #4f46e5; box-shadow: 0 8px 0 #3730a3;">
+                            <div style="text-align: center; margin-bottom: 20px;">
+                                <span style="font-weight: 800; color: #3730a3; font-size: 1.3em;">📈 MONTANTI</span>
+                            </div>
+                            
+                            <div style="text-align: center; padding: 20px; background: linear-gradient(145deg, #e0e7ff, #c7d2fe); border-radius: 15px; margin-bottom: 20px;">
+                                <div style="font-size: 0.9em; color: #3730a3; text-transform: uppercase;">MONTANTE MEDIANO</div>
+                                <div style="font-size: 2.5em; font-weight: 800; color: #3730a3;">€ ${formatNumber(montanteMediano)}</div>
+                                <div style="font-size: 0.8em;">Dopo ${anniContribuzione} anni</div>
+                            </div>
+                            
+                            <div class="scenari-grid">
+                                <div class="scenario-box scenario-ottimistico">
+                                    <div class="scenario-label">OTTIMISTICO</div>
+                                    <div class="scenario-valore">€ ${formatNumber(montanteOttimistico)}</div>
+                                    <div style="font-size: 0.7em;">+1 dev (${(rendimentoOttimistico*100).toFixed(1)}%)</div>
+                                </div>
+                                <div class="scenario-box scenario-pessimistico">
+                                    <div class="scenario-label">PESSIMISTICO</div>
+                                    <div class="scenario-valore">€ ${formatNumber(montantePessimistico)}</div>
+                                    <div style="font-size: 0.7em;">-1 dev (${((rendimentoSecondo - volatilitaSecondo)*100).toFixed(1)}%)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+            } catch (error) {
+                console.error('Errore:', error);
+                alert('Errore nel calcolo. Verifica i valori inseriti.');
+            }
+        }
+        
+        function formatNumber(num) {
+            if (isNaN(num) || num === Infinity || num === -Infinity) return '0';
+            return Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+        
+        // Event listeners
+        document.getElementById('eta').addEventListener('change', calcolaSimulazione);
+        document.getElementById('etaPensione').addEventListener('change', function() {
+            const eta = parseInt(document.getElementById('eta').value);
+            const etaPensione = parseInt(this.value);
+            document.getElementById('anniDisplay').innerHTML = Math.max(0, etaPensione - eta);
+            calcolaSimulazione();
+        });
+        document.getElementById('ral').addEventListener('change', calcolaSimulazione);
+        document.getElementById('fondoAttuale').addEventListener('change', calcolaSimulazione);
+        document.getElementById('contributoDatoriale').addEventListener('change', calcolaSimulazione);
+        document.getElementById('contributoDipendente').addEventListener('change', calcolaSimulazione);
+        document.getElementById('rendimento').addEventListener('change', calcolaSimulazione);
+        document.getElementById('inflazione').addEventListener('change', calcolaSimulazione);
+        document.getElementById('rendimentoAggressivo').addEventListener('change', calcolaSimulazione);
+        document.getElementById('volatilitaAggressivo').addEventListener('change', calcolaSimulazione);
+        
+        window.onload = calcolaSimulazione;
+    </script>
+</body>
+</html>
