@@ -825,7 +825,7 @@
                 // ========== GENERAZIONE HTML RISULTATI ==========
                 document.getElementById('risultati-content').innerHTML = `
                     <div class="highlight">
-                        <div style="font-size: 1.1em; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px;">MONTANTE FINALE TOTALE</div>
+                        <div style="font-size: 1.1em; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px;">MONTANTE FINALE TOTALE del FONDO PRINCIPALE</div>
                         <div class="montante">€ ${formatNumber(montante)}</div>
                         <div style="opacity: 0.9; margin-top: 10px;">Dopo ${anniContribuzione} anni</div>
                     </div>
@@ -834,7 +834,7 @@
                         <h4 style="color: white; margin-top: 0; margin-bottom: 15px; text-align: center;">📊 RIPARTIZIONE CAPITALE</h4>
                         <div class="capitale-ripartizione">
                             <div class="capitale-box">
-                                <div class="capitale-label">Fondo attuale rivalutato</div>
+                                <div class="capitale-label">Fondo Pensione attuale rivalutato fino al  pensionamento</div>
                                 <div class="capitale-valore">€ ${formatNumber(fondoAttualeRivalutato)}</div>
                                 <div style="font-size: 0.75em;">+${((fondoAttualeRivalutato/fondoAttuale - 1)*100).toFixed(1)}%</div>
                             </div>
