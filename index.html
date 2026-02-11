@@ -412,17 +412,6 @@
             box-shadow: 0 15px 30px rgba(40,167,69,0.3);
         }
         
-        .note {
-            font-size: 0.85em;
-            color: #5a6c7e;
-            margin-top: 25px;
-            padding: 20px;
-            background: #fff9e6;
-            border-radius: 15px;
-            border-left: 6px solid #ffc107;
-            line-height: 1.6;
-        }
-        
         .tooltip-info {
             background: #e1f5fe;
             padding: 20px;
@@ -521,6 +510,43 @@
             border-top: 2px solid rgba(255,255,255,0.15);
             margin: 25px 0;
         }
+        
+        /* STILE DISCLAIMER COMPLETO */
+        .disclaimer-completo {
+            font-size: 0.8em;
+            line-height: 1.6;
+            margin-top: 50px;
+            padding: 30px;
+            background: #fff3cd;
+            border-left: 8px solid #ffc107;
+            border-radius: 15px;
+            color: #856404;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .disclaimer-completo strong {
+            color: #533f03;
+        }
+        
+        .disclaimer-title {
+            font-size: 1.2em;
+            font-weight: 800;
+            color: #533f03;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #ffc107;
+            padding-bottom: 10px;
+        }
+        
+        .disclaimer-footer {
+            font-size: 0.9em;
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #ffc107;
+            color: #856404;
+        }
     </style>
 </head>
 <body>
@@ -532,13 +558,12 @@
             <strong>📌 NOVITÀ LEGGE DI BILANCIO 2025:</strong><br>
             • <strong>💰 Nuovo massimale deducibile: €5.300 annui</strong> <br>
             • <strong>TFR annuo (7,41% RAL)</strong> - Calcolo del Trattamento di Fine Rapporto secondo la normativa<br>
-            • <strong>Contributo datoriale</strong> - Percentuale della RAL versata dal datore nel fondo pensione . In termini pratici, rappresenta una vera e propria quota di “soldi gratis”,<br>
-            • <strong>Contributo dipendente</strong> - Per poter ricevere il contributo datoriale è necessario che il dipendente versi anche una piccola percentuale a tuo carico.<br>
-            • <strong>Fondo Pensione attuale</strong> - Capitale già accumulato ( TFR pregresso + gli eventauli contributi datoriali e del dipendente gia versati) che verrà rivalutato<br>
-            • <strong>Discaimer</strong> - Il presente strumento di calcolo e simulazione è realizzato esclusivamente a scopo informativo, didattico e illustrativo. I risultati generati non costituiscono in alcun modo:
-              Consulenza finanziaria personalizzata. Raccomandazione di investimento. Consulenza fiscale o previdenziale. Offerta o sollecitazione all'acquisto di prodotti finanziari
-
-      </div>
+            • <strong>Contributo datoriale</strong> - Percentuale della RAL versata dal datore nel fondo pensione. In termini pratici, rappresenta una vera e propria quota di “soldi gratis”.<br>
+            • <strong>Contributo dipendente</strong> - Per poter ricevere il contributo datoriale è necessario che il dipendente versi anche una piccola percentuale a proprio carico.<br>
+            • <strong>Fondo Pensione attuale</strong> - Capitale già accumulato (TFR pregresso + eventuali contributi datoriali e del dipendente già versati) che verrà rivalutato<br>
+            • <strong>Strategia del secondo fondo pensione</strong> - Simulazione per calcolare ulteriori spazi di deducibilità da investire in un secondo fondo pensione con rischio personalizzabile<br>
+            • <strong>Disclaimer</strong> - Il presente strumento di calcolo e simulazione è realizzato esclusivamente a scopo informativo, didattico e illustrativo. I risultati generati non costituiscono in alcun modo: consulenza finanziaria personalizzata, raccomandazione di investimento, consulenza fiscale o previdenziale, offerta o sollecitazione all'acquisto di prodotti finanziari.
+        </div>
         
         <div class="grid">
             <!-- PANNELLO INPUT -->
@@ -700,16 +725,72 @@
             </div>
         </div>
         
-        <div class="note">
-            <strong>⚠️ NOTA BENE:</strong> La simulazione ha scopo puramente illustrativo. 
-            Il TFR è calcolato al <strong>7,41% della RAL</strong> secondo la normativa vigente. 
-            <strong>Il massimale deducibile è stato aggiornato a €5.300 secondo la Legge di Bilancio 2025.</strong>
-            I rendimenti passati non sono indicativi di quelli futuri. 
-            La tassazione agevolata dei fondi pensione è al 15% riducibile al 9% dopo 35 anni.
-            <strong>La Strategia del secondo fondo pensione è fiscalmente deducibile.</strong> Il risparmio fiscale del 43% è calcolato per RAL superiori a €55.000 (importi inferiori generano deduzioni inferiori).
-            Consigliamo di consultare un consulente finanziario per valutazioni personalizzate.
+        <!-- ========== DISCLAIMER COMPLETO SOSTITUITO AL VECCHIO NOTE ========== -->
+        <div class="disclaimer-completo">
+            <div class="disclaimer-title">⚠️ DISCLAIMER LEGALE - INFORMAZIONI OBBLIGATORIE</div>
+            
+            <p><strong>1. SCOPO INFORMATIVO E DIDATTICO</strong><br>
+            Il presente strumento di calcolo e simulazione è realizzato <strong>esclusivamente a scopo informativo, didattico e illustrativo</strong>. I risultati generati non costituiscono in alcun modo:</p>
+            <ul style="margin-left: 20px; margin-bottom: 15px;">
+                <li>Consulenza finanziaria personalizzata</li>
+                <li>Raccomandazione di investimento</li>
+                <li>Consulenza fiscale o previdenziale</li>
+                <li>Offerta o sollecitazione all'acquisto di prodotti finanziari</li>
+            </ul>
+            
+            <p><strong>2. ASSENZA DI GARANZIE</strong><br>
+            I rendimenti passati <strong>NON SONO INDICATIVI</strong> di quelli futuri. I mercati finanziari sono volatili e imprevedibili. Le proiezioni si basano su ipotesi semplificate (rendimenti costanti, inflazione costante, assenza di costi, continuità contributiva) che <strong>non riflettono la realtà</strong> e non costituiscono promesse o garanzie di risultati effettivi.</p>
+            
+            <p><strong>3. RESPONSABILITÀ DELL'UTENTE</strong><br>
+            L'utente è l'<strong>unico e esclusivo responsabile</strong> della correttezza dei dati inseriti e delle decisioni finanziarie, previdenziali e fiscali conseguenti all'utilizzo del simulatore. Lo sviluppatore, il proprietario e i distributori <strong>NON rispondono di perdite, danni o mancati guadagni</strong> derivanti dall'utilizzo dello strumento.</p>
+            
+            <p><strong>4. NORMATIVA VIGENTE E PARAMETRI</strong><br>
+            Parametri fiscali e previdenziali utilizzati:</p>
+            <ul style="margin-left: 20px; margin-bottom: 15px;">
+                <li><strong>Massimale deducibile:</strong> €5.300 annui (Legge di Bilancio 2025)</li>
+                <li><strong>TFR:</strong> 7,41% della RAL (normativa vigente)</li>
+                <li><strong>Tassazione agevolata:</strong> 15% riducibile al 9% dopo 35 anni di permanenza</li>
+                <li><strong>Aliquota IRPEF:</strong> 23%, 35% o 43% in base agli scaglioni di reddito</li>
+                <li><strong>Secondo fondo:</strong> rendimento 6%, volatilità 10% (valori predefiniti personalizzabili)</li>
+            </ul>
+            <p>La normativa fiscale e previdenziale è soggetta a <strong>frequenti modifiche e diverse interpretazioni</strong>. I parametri potrebbero non essere aggiornati o non applicabili alla specifica situazione dell'utente.</p>
+            
+            <p><strong>5. OBBLIGO DI CONSULENZA PROFESSIONALE</strong><br>
+            <strong>Prima di assumere qualsiasi decisione finanziaria, previdenziale o fiscale, l'utente È OBBLIGATORIAMENTE TENUTO a consultare:</strong></p>
+            <ul style="margin-left: 20px; margin-bottom: 15px;">
+                <li>Un consulente finanziario indipendente abilitato</li>
+                <li>Un dottore commercialista o consulente del lavoro</li>
+                <li>Un promotore finanziario qualificato</li>
+                <li>Le autorità di vigilanza (COVIP, CONSOB, Banca d'Italia) per informazioni ufficiali</li>
+            </ul>
+            
+            <p><strong>6. PRIVACY E TRATTAMENTO DATI</strong><br>
+            <strong>Nessun dato personale o finanziario viene raccolto, memorizzato o trasmesso</strong>. I calcoli avvengono <strong>ESCLUSIVAMENTE sul dispositivo dell'utente</strong>. Nessuna informazione lascia il browser. Non vengono utilizzati cookie di profilazione o tracciamento.</p>
+            
+            <p><strong>7. LIMITAZIONI DEL MODELLO DI CALCOLO</strong><br>
+            La simulazione non considera e non può considerare:</p>
+            <ul style="margin-left: 20px; margin-bottom: 15px;">
+                <li>Costi di gestione, commissioni di ingresso, oneri fiscali intermedi</li>
+                <li>Versamenti straordinari, anticipazioni, riscatti parziali</li>
+                <li>Eventi straordinari di mercato, crisi finanziarie, cambi normativi</li>
+                <li>Interruzioni contributive, cambi di lavoro, periodi di disoccupazione</li>
+                <li>Regimi fiscali speciali, situazioni personali specifiche</li>
+            </ul>
+            
+            <p><strong>8. VALORI DEFAULT E PARAMETRI ESEMPLIFICATIVI</strong><br>
+            I valori predefiniti (età 50, RAL €60.000, fondo attuale €98.000, contributo datoriale 1,6%, contributo dipendente 1%) sono <strong>meramente esemplificativi</strong> e non costituiscono raccomandazione. Ogni utente deve inserire i propri dati personali effettivi.</p>
+            
+            <p><strong>9. ACCETTAZIONE DELLE CONDIZIONI</strong><br>
+            <strong>L'UTILIZZO DEL SIMULATORE IMPLICA L'ACCETTAZIONE INTEGRALE E INCONDIZIONATA DEL PRESENTE DISCLAIMER.</strong> Qualora l'utente non accetti anche una sola delle clausole sopraesposte, è tenuto a non utilizzare lo strumento e ad abbandonare immediatamente la pagina.</p>
+            
+            <div class="disclaimer-footer">
+                <strong>© 2025 - Strategia del Doppio Fondo Pensione - Tutti i diritti riservati</strong><br>
+                Strumento gratuito a scopo didattico - Vietata la riproduzione commerciale non autorizzata<br>
+                Aggiornato alla Legge di Bilancio 2025 - Versione 1.0
+            </div>
         </div>
-    </div>
+        
+    </div> <!-- FINE CONTAINER -->
 
     <script>
         function calcolaSimulazione() {
@@ -836,7 +917,7 @@
                         <h4 style="color: white; margin-top: 0; margin-bottom: 15px; text-align: center;">📊 RIPARTIZIONE CAPITALE</h4>
                         <div class="capitale-ripartizione">
                             <div class="capitale-box">
-                                <div class="capitale-label">Fondo Pensione attuale rivalutato fino al  pensionamento</div>
+                                <div class="capitale-label">Fondo Pensione attuale rivalutato fino al pensionamento</div>
                                 <div class="capitale-valore">€ ${formatNumber(fondoAttualeRivalutato)}</div>
                                 <div style="font-size: 0.75em;">+${((fondoAttualeRivalutato/fondoAttuale - 1)*100).toFixed(1)}%</div>
                             </div>
@@ -1043,5 +1124,4 @@
         window.onload = calcolaSimulazione;
     </script>
 </body>
-    
 </html>
